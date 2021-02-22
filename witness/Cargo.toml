@@ -1,0 +1,31 @@
+[package]
+description = "nrgsc witness rust implmentation"
+name = "nrgsc_witness"
+version = "0.1.0"
+authors = ["nrgsc<nrgsc1688@protonmail.com>"]
+license = "MIT"
+
+[dependencies]
+nrgsc = { path = "..", default-features = false }
+nrgsc_wallet_base = { path = "../wallet_base" }
+nrgsc_object_base = { path = "../object_base" }
+
+may = "0.3"
+log = "0.4"
+rand = "0.6"
+chrono = "0.4"
+failure = "0.1"
+num_cpus = "1"
+rcu_cell = "0.1"
+hashbrown = "0.1"
+env_logger = "0.6"
+lazy_static = "1"
+
+may_signal = {git = "https://github.com/Xudong-Huang/may_signal.git"}
+
+[features]
+default = ["kv_store_none"]
+kv_store_none = ["nrgsc/kv_store_none"]
+kv_store_sled = ["nrgsc/kv_store_sled"]
+kv_store_rocksdb = ["nrgsc/kv_store_rocksdb"]
+

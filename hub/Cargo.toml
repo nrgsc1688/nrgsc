@@ -1,0 +1,24 @@
+[package]
+description = "nrgsc hub rust implmentation"
+name = "nrgsc_hub"
+version = "0.1.0"
+authors = ["nrgsc<nrgsc1688@protonmail.com>"]
+license = "MIT"
+
+[dependencies]
+nrgsc = { path = "..", default-features = false}
+
+may = "0.3"
+log = "0.4"
+chrono = "0.4"
+num_cpus = "1"
+serde_json = "1"
+env_logger = "0.6"
+may_signal = {git = "https://github.com/nrgsc1688/nrgsc.git"}
+
+[features]
+default = ["kv_store_none"]
+kv_store_none = ["nrgsc/kv_store_none"]
+kv_store_sled = ["nrgsc/kv_store_sled"]
+kv_store_rocksdb = ["nrgsc/kv_store_rocksdb"]
+
